@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+
+  <model name="workstation">
+    <static>true</static>
+
+    <!-- FRAME DI RIFERIMENTO DELLA POSTAZIONE -->
+    <!-- Usalo come table_frame in TF -->
+    <pose>0 0 0 0 0 0</pose>
+
+    <!-- ================= TABLE 1 ================= -->
+    <link name="table_1_link">
+      <pose>0.03 0.19 0 0 0 1.2</pose>
+
+      <collision name="collision">
+        <pose>0.05 0 0.08 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.3 0.16</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="top">
+        <pose>0.05 0 0.15 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.3 0.02</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <visual name="leg_left">
+        <pose>0.05 -0.15 0.08 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.02 0.16</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <visual name="leg_right">
+        <pose>0.05 0.15 0.08 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.02 0.16</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ================= TABLE 2 ================= -->
+    <link name="table_2_link">
+      <pose>0.02 -0.41 0 0 0 1.2</pose>
+
+      <collision name="collision">
+        <pose>0.05 0 0.08 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.3 0.16</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="top">
+        <pose>0.05 0 0.15 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.3 0.02</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <visual name="leg_left">
+        <pose>0.05 -0.15 0.08 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.02 0.16</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <visual name="leg_right">
+        <pose>0.05 0.15 0.08 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.02 0.16</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- ================= PICKABLE OBJECT ================= -->
+    <link name="pickable_object_link">
+      <pose>0.125 0.18 0.15 0 0 0</pose>
+
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>1e-5</ixx>
+          <iyy>1e-5</iyy>
+          <izz>1e-5</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.005</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.005</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+
+  </model>
+
+</sdf>

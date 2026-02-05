@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="pickable_object">
+    <static>false</static>
+
+    <!-- Pose globale (equivalente a collision_objects[2].pose) -->
+    <pose>0.1 0.2 0.35 0 0 0</pose>
+
+    <link name="link">
+
+      <!-- Inerzia minimale ma fisicamente valida -->
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>1e-5</ixx>
+          <iyy>1e-5</iyy>
+          <izz>1e-5</izz>
+        </inertia>
+      </inertial>
+
+      <!-- Collision -->
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.005</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <!-- Visual -->
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.005</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

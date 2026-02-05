@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="table1">
+    <static>true</static>
+
+    <!-- Pose globale dell'oggetto (equivalente a collision_objects[0].pose) -->
+    <pose>0 0.205 0 0 0 1.2</pose>
+
+    <link name="link">
+
+      <!-- Piano superiore -->
+      <collision name="top_collision">
+        <pose>0.05 0.0 0.09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.3 0.02</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="top_visual">
+        <pose>0.05 0.0 0.09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.3 0.02</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <!-- Gamba sinistra -->
+      <collision name="leg_left_collision">
+        <pose>0.05 -0.15 0.05 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.02 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="leg_left_visual">
+        <pose>0.05 -0.15 0.05 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.02 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+      <!-- Gamba destra -->
+      <collision name="leg_right_collision">
+        <pose>0.05 0.15 0.05 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.02 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <visual name="leg_right_visual">
+        <pose>0.05 0.15 0.05 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.02 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>

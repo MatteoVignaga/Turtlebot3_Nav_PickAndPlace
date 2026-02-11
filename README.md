@@ -79,6 +79,8 @@ it was necessary to get close enough to the tables without risking for the robot
 It is also worth noting that the pick and place is composed of multiple sequential requests, and that it may be 
 necessary to restart the process in case one of them fails.
 
+Here is a video that shows the entire execution:
+
 [![Watch the video](https://img.youtube.com/vi/W7ODtW2BR80/hqdefault.jpg)](https://youtu.be/W7ODtW2BR80?si=IhLpHSls9wEBhn8q)
 
 The entire pick and place setup assumes the correct positioning of the robot: in case the navigation doesn't allow the robot to reach the correct pose (as you may notice, it often stops just shy of the right position), an extra node has been added, to request

@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 # Authors: Hye-jong KIM
+# Adapted by: Matteo Vignaga
 
 import os
 

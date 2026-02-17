@@ -94,7 +94,7 @@ int main(int argc, char **argv)
     planning_scene_interface.applyCollisionObjects(collision_objects);
     RCLCPP_INFO(logger, "Collision objects added to the planning scene.");
 
-        // stop the spinner
+    // stop the spinner
     rclcpp::shutdown();
     spinner_thread.join();
     return 0;

@@ -8,10 +8,7 @@
 #include <linkattacher_msgs/srv/attach_link.hpp>
 #include <linkattacher_msgs/srv/detach_link.hpp>
 
-const double tau = 2 * M_PI;
-
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     // ROS2 Initialization
     rclcpp::init(argc, argv);
     auto node = std::make_shared<rclcpp::Node>("pap_node");
@@ -39,6 +36,8 @@ int main(int argc, char **argv)
     arm.setNumPlanningAttempts(5);
     arm.setGoalTolerance(0.01);
     arm.setPlanningTime(200.0);
+    // RCLCPP_INFO(logger, "Planning frame: %s", arm.getPlanningFrame().c_str());
+    // RCLCPP_INFO(logger, "End effector link: %s", arm.getEndEffectorLink().c_str());
     
     // Collision objects
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
@@ -110,12 +109,6 @@ int main(int argc, char **argv)
         - Translation: [0.100, 0.199, 0.181]
         - Rotation: in Quaternion (xyzw) [0.011, -0.024, 0.405, 0.914]
         - Rotation: in RPY (radian) [0.000, -0.053, 0.835]
-        - Rotation: in RPY (degree) [0.000, -3.037, 47.857]
-        - Matrix:
-        0.670 -0.741 -0.036  0.100
-        0.740  0.671 -0.039  0.199
-        0.053  0.000  0.999  0.181
-        0.000  0.000  0.000  1.000
         */
     geometry_msgs::msg::Pose approach_object_target_pose;
     tf2::Quaternion orientation;
@@ -125,9 +118,6 @@ int main(int argc, char **argv)
     approach_object_target_pose.position.y = 0.199;
     approach_object_target_pose.position.z = 0.181;
     arm.setPoseTarget(approach_object_target_pose, "");
-
-    RCLCPP_INFO(logger, "Planning frame: %s", arm.getPlanningFrame().c_str());
-    RCLCPP_INFO(logger, "End effector link: %s", arm.getEndEffectorLink().c_str());
 
     // Planning
     moveit::planning_interface::MoveGroupInterface::Plan approach_plan;
@@ -198,17 +188,10 @@ int main(int argc, char **argv)
     }
 
     // Move to other table
-    /* 
-    At time 139.699000000
+    /* At time 139.699000000
     - Translation: [0.116, -0.183, 0.191]
     - Rotation: in Quaternion (xyzw) [-0.010, -0.024, -0.367, 0.930]
     - Rotation: in RPY (radian) [0.000, -0.053, -0.752]
-    - Rotation: in RPY (degree) [0.000, -3.013, -43.101]
-    - Matrix:
-    0.729  0.683 -0.038  0.116
-    -0.682  0.730  0.036 -0.183
-    0.053  0.000  0.999  0.191
-    0.000  0.000  0.000  1.000
     */
     geometry_msgs::msg::Pose move_object_target_pose;
     orientation.setRPY(0, -0.053, -0.752);

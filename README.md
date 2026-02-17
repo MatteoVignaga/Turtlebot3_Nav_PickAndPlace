@@ -76,8 +76,8 @@ ros2 run tb3_nav_pick_and_place static_pick_and_place
 **Note**: the navigate_through_poses node has an anachronistic name, as it merely requests navigate_to_pose twice; 
 it was necessary to get close enough to the tables without risking for the robot to go all the way around them.
 
-It is also worth noting that the pick and place is composed of multiple sequential requests, and that it may be 
-necessary to restart the process in case one of them fails.
+It is also worth noting that the pick and place is composed of multiple sequential requests, and it will keep retrying
+each of them until it gets a succesful response by the MoveIt 2 API.
 
 Here is a video that shows the entire execution:
 

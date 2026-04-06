@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+<model name="pickable_object">
+	<static>false</static>
+
+	<!-- Global pose -->
+	<pose>0 0 0.3 0 0 0</pose>
+
+	<link name="object">
+
+		<!-- Minimal inertial values -->
+		<inertial>
+			<mass>0.05</mass>
+			<inertia>
+				<ixx>1e-5</ixx>
+				<iyy>1e-5</iyy>
+				<izz>1e-5</izz>
+			</inertia>
+		</inertial>
+
+		<!-- Collision -->
+		<collision name="collision_base">
+			<geometry>
+				<cylinder>
+					<radius>0.05</radius>
+					<length>0.01</length>
+				</cylinder>
+			</geometry>
+		</collision>
+
+		<collision name="collision_pole">
+			<pose>0 0 0.15 0 0 0</pose>
+			<geometry>
+				<cylinder>
+					<radius>0.005</radius>
+					<length>0.3</length>
+				</cylinder>
+			</geometry>
+		</collision>
+
+
+		<!-- Visual -->
+		<visual name="visual_base">
+			<geometry>
+				<cylinder>
+					<radius>0.05</radius>
+					<length>0.01</length>
+				</cylinder>
+			</geometry>
+		</visual>
+
+		<visual name="visual_pole">
+			<pose>0 0 0.15 0 0 0</pose>
+			<geometry>
+				<cylinder>
+					<radius>0.005</radius>
+					<length>0.3</length>
+				</cylinder>
+			</geometry>
+		</visual>
+
+
+		<!-- Marker set precisely 40cm - 30/2cm = 25cm above center of object -->
+		<visual name="visual-mesh">
+			<pose>0 0 0.4 0 0 1.57</pose>
+			<geometry>
+				<!-- <box>
+					<size>0.01 0.055 0.055</size>
+				</box> -->
+				<mesh>
+					<uri>model://aruco_marker/meshes/ArUcoMarker.dae</uri>
+				</mesh>
+			</geometry>
+		</visual>
+
+		<visual name="visual-frame">
+			<pose>0 0 0.4 1.57 0 0</pose>
+			<geometry>
+				<box>
+					<size>0.008 0.065 0.065</size>
+				</box>
+			</geometry>
+		</visual>
+
+	</link>
+
+
+</model>
+</sdf>

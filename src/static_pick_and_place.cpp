@@ -21,7 +21,7 @@ void perform_sync_movement(rclcpp::Logger logger, std::string operation_name, mo
     // Planning
     moveit::planning_interface::MoveGroupInterface::Plan plan;
     auto plan_success = move_group.plan(plan);
-    while (!plan_success != moveit::core::MoveItErrorCode::SUCCESS) {
+    while (plan_success != moveit::core::MoveItErrorCode::SUCCESS) {
         RCLCPP_ERROR(logger, "Visualizing plan for %s: FAILED. Retrying...", operation_name.c_str());
         plan_success = move_group.plan(plan);
     }

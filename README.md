@@ -2,10 +2,10 @@
 
 This is a ROS 2 package that is part of my thesis work. 
 It provides a set of launch files and nodes that demonstrate the potential of autonomous robot manipulation
-with open source technologies such as ROS 2 itself, the Nav2 navigation stack, and the MoveIt 2 framework. The 
-demonstrations include a static, "on the spot" pick and place scenario and a dynamic, "move into position" 
-pick and place scenario.
-Both scenarios may be visualized in RViz and Gazebo Classic. 
+with open source technologies such as ROS 2 itself, the Gazebo Classic simulator, the Navigation 2 navigation stack, the MoveIt 2 motion planning framework and the OpenCV computer vision library. 
+
+The demonstrations include two prototypes: a static, "on the spot" pick and place scenario and a dynamic, "move into position" 
+pick and place scenario. The complete work is a pick and place scenario in which a TurtleBot 3 with OpenMANIPULATOR navigates towards and object, recognizes it through OpenCV's ArUco marker, estimates its position, and uses the estimation to park itself close to it to grasp it; finally, it should navigate to a different area of the world and place it. The entire process requires no human input, exception made for the setup launch and the execution launch.
 
 It is tested on Ubuntu 22.04, ROS 2 Humble and Gazebo Classic.
 
@@ -19,6 +19,7 @@ git clone https://github.com/MatteoVignaga/Turtlebot3_Nav_PickAndPlace.git
 git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
 git clone https://github.com/IFRA-Cranfield/IFRA_LinkAttacher.git
+git clone -b opencv_4.7 https://github.com/JMU-ROBOTICS-VIVA/ros2_aruco.git
 ```
 
 Then compile and source the setup:
@@ -89,3 +90,18 @@ specific position goals. Here is the direct translation of the navigate through 
 ros2 run tb3_nav_pick_and_place navigate_to_pose --ros-args -p x:=3.8 -p y:=0.6
 ros2 run tb3_nav_pick_and_place navigate_to_pose --ros-args -p x:=4.05 -p y:=0.6
 ```
+
+### Complete work
+As an automation project, this final product is much simpler to run: in one terminal, use the launch file for the setup.
+``` bash
+ros2 launch tb3_nav_pick_and_place complete_scenario_with_object_detection.launch.py
+```
+This will open Gazebo, spawn the robot and initialize the necessary nodes. Then, run the execution launch file:
+``` bash
+ros2 launch tb3_nav_pick_and_place execute_complete_scenario_with_object_detection.launch.py
+```
+This file uses a list of EventHandlers and TimerActions to execute various nodes in sequence, each performing one subtask of the main task. 
+Here is a video demonstration of the result:
+
+<video src='https://youtu.be/NwpsNIYv7PI' width=180/>
+

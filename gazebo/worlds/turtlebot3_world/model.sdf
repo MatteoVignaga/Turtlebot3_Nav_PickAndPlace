@@ -75,7 +75,7 @@
           </material>
         </visual>
 
-        <collision name='two_one'>
+        <!-- <collision name='two_one'>
           <pose>0 -1.1 0.25 0 0 0</pose>
           <geometry>
             <cylinder>
@@ -109,7 +109,7 @@
             <specular>0.2 0.2 0.2 1</specular>
             <emissive>0 0 0 1</emissive>
           </material>
-        </visual>
+        </visual> -->
 
         <collision name='two_two'>
           <pose>0 0 0.25 0 0 0</pose>
@@ -147,7 +147,7 @@
           </material>
         </visual>
 
-        <collision name='two_three'>
+        <!-- <collision name='two_three'>
           <pose>0 1.1 0.25 0 0 0</pose>
           <geometry>
             <cylinder>
@@ -181,7 +181,7 @@
             <specular>0.2 0.2 0.2 1</specular>
             <emissive>0 0 0 1</emissive>
           </material>
-        </visual>
+        </visual> -->
 
         <collision name='three_one'>
           <pose>1.1 -1.1 0.25 0 0 0</pose>

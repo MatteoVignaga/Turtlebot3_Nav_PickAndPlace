@@ -103,5 +103,5 @@ ros2 launch tb3_nav_pick_and_place execute_complete_scenario_with_object_detecti
 This file uses a list of EventHandlers and TimerActions to execute various nodes in sequence, each performing one subtask of the main task. 
 Here is a video demonstration of the result:
 
-<video src='https://youtu.be/NwpsNIYv7PI' width=180/>
+[![Watch the video](https://img.youtube.com/vi/NwpsNIYv7PI/hqdefault.jpg)](https://youtu.be/NwpsNIYv7PI)
 

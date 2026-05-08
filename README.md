@@ -5,7 +5,7 @@ It provides a set of launch files and nodes that demonstrate the potential of au
 with open source technologies such as ROS 2 itself, the Gazebo Classic simulator, the Navigation 2 navigation stack, the MoveIt 2 motion planning framework and the OpenCV computer vision library. 
 
 The demonstrations include two prototypes: a static, "on the spot" pick and place scenario and a dynamic, "move into position" 
-pick and place scenario. The complete work is a pick and place scenario in which a TurtleBot 3 with OpenMANIPULATOR navigates towards and object, recognizes it through OpenCV's ArUco marker, estimates its position, and uses the estimation to park itself close to it to grasp it; finally, it should navigate to a different area of the world and place it. The entire process requires no human input, exception made for the setup launch and the execution launch.
+pick and place scenario. The complete work is a pick and place scenario in which a modified TurtleBot 3 with OpenMANIPULATOR navigates towards and object, recognizes it through OpenCV's ArUco marker, estimates its position, and uses the estimation to park itself close to it to grasp it; finally, it should navigate to a different area of the world and place it. The entire process requires no human input, exception made for the setup launch and the execution launch.
 
 It is tested on Ubuntu 22.04, ROS 2 Humble and Gazebo Classic.
 
@@ -28,6 +28,8 @@ cd ..
 colcon build symlink-install
 source install/setup.bash
 ```
+
+NB: the modifications on the robot's URDF are not present in this repository, as it only involves moving the camera link 40cm upwards and back to simulate an eye-to-hand approach, and it was deemed excessive to add the entire package here for such a minor change. Hence, you may need to duplicate the original package, rename it `custom_turtlebot3_manipulation_description`, and modify the URDF file.
 
 ## Usage
 ### Static pick and place
